@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pixel Painter</title>
+        
+<style>
+#canvas {
+    display: grid;
+    grid-template-columns: repeat(9, 30px);
+    grid-template-rows: repeat(9, 30px);
+    justify-content: center;
+}
+#canvas > div {
+    width: 30px;
+    height: 30px;
+
+    border: 1px solid black;
+}
+.coloured {
+    background-color: lightgreen;
+}
+</style>    
+</head>
+
+<body>
+    <h1>Pixel Painter</h1>
+    <div id="canvas"></div>
+    
+<script>
+const canvas = document.getElementById('canvas');
+var i;
+for (i=0; i<81; i++) {
+    const div = document.createElement('div');
+    div.classList = 'cell';
+    canvas.appendChild(div);
+}
+
+const cells = document.querySelectorAll('.cell');
+cells.forEach((div) => {
+    div.addEventListener('mouseover', () => {
+        div.classList.add('coloured');
+    });
+});
+
+</script>
+
+</body>
+</html>

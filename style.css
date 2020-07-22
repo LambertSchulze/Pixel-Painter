@@ -1,0 +1,11 @@
+#canvas {
+    display: grid;
+    grid-template-columns: repeat(9, 30px);
+    grid-template-rows: repeat(9, 30px);
+    justify-content: center;
+}
+
+#canvas > div {
+    width: 30px;
+    height: 30px;
+}

@@ -14,15 +14,27 @@
     width: 30px;
     height: 30px;
 }
-.coloured {
-    background-color: lightgreen;
-}
+
 </style>    
 </head>
 
 <body>
     <h1>Pixel Painter</h1>
     <div id="canvas"></div>
+    <form id="color-picker">
+        <input type="radio" id="white" name="colour" value="white">
+        <label for="white">white</label><br>
+        <input type="radio" id="yellow" name="colour" value="yellow">
+        <label for="yellow">yellow</label><br>
+        <input type="radio" id="green" name="colour" value="green">
+        <label for="green">green</label><br>
+        <input type="radio" id="red" name="colour" value="red">
+        <label for="red">red</label><br>
+        <input type="radio" id="blue" name="colour" value="blue">
+        <label for="blue">blue</label><br>
+        <input type="radio" id="black" name="colour" value="black" checked="checked">
+        <label for="black">black</label>
+    </form>
     
 <script>
 //Setup the canvas
@@ -40,12 +52,12 @@ let isDrawing = false;
 const cells = document.querySelectorAll('.cell');
 cells.forEach((div) => {
     div.addEventListener('mousedown', () => {
-        div.classList.toggle('coloured');
+        colour(div);
         isDrawing = true;
     });
     div.addEventListener('mouseenter', () => {
         if (isDrawing == true) {
-            div.classList.toggle('coloured');
+            colour(div);
         };
     });
     div.addEventListener('mouseup', () => {
@@ -53,6 +65,11 @@ cells.forEach((div) => {
     });
 });
 
+//colour the cell
+function colour(cell) {
+    let colour = document.querySelector('input:checked').value;
+    cell.style.backgroundColor = colour;
+}
 </script>
 
 </body>

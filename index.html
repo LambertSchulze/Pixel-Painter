@@ -13,8 +13,6 @@
 #canvas > div {
     width: 30px;
     height: 30px;
-
-    border: 1px solid black;
 }
 .coloured {
     background-color: lightgreen;
@@ -27,6 +25,7 @@
     <div id="canvas"></div>
     
 <script>
+//Setup the canvas
 const canvas = document.getElementById('canvas');
 var i;
 for (i=0; i<81; i++) {
@@ -35,10 +34,22 @@ for (i=0; i<81; i++) {
     canvas.appendChild(div);
 }
 
+//Draw logic
+let isDrawing = false;
+
 const cells = document.querySelectorAll('.cell');
 cells.forEach((div) => {
-    div.addEventListener('mouseover', () => {
-        div.classList.add('coloured');
+    div.addEventListener('mousedown', () => {
+        div.classList.toggle('coloured');
+        isDrawing = true;
+    });
+    div.addEventListener('mouseenter', () => {
+        if (isDrawing == true) {
+            div.classList.toggle('coloured');
+        };
+    });
+    div.addEventListener('mouseup', () => {
+        isDrawing = false;
     });
 });
 

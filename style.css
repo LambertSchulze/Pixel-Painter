@@ -1,3 +1,11 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
 html {
     font-family: monospace;
     font-size: 1rem;
@@ -12,13 +20,18 @@ body {
     background-color: #ddd;
 }
 
+h1 {
+    height: 50px;
+    line-height: 50px;
+}
+
 #canvas {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: repeat(9, 1fr);
     justify-content: center;
-    width: min(80vh, 100vh);
-    height: min(80vh, 100vh);
+    width: min(calc(100vh - 100px), 100vw);
+    height: min(calc(100vh - 100px), 100vw);
 }
 
 #canvas > div {
@@ -26,3 +39,23 @@ body {
     height: 1fr;
     background-color: #fff;
 }
+
+form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+}
+
+[for=white] {background-color: white;}
+[for=yellow] {background-color: yellow;}
+[for=green] {background-color: green;}
+[for=red] {background-color: red;}
+[for=blue] {background-color: blue;}
+[for=black] {background-color: black;}

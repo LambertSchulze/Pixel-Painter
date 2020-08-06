@@ -17,6 +17,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    height: 100vh;
     background-color: #ddd;
 }
 
@@ -29,9 +30,9 @@ h1 {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
     grid-template-rows: repeat(9, 1fr);
-    justify-content: center;
-    width: min(calc(100vh - 100px), 100vw);
-    height: min(calc(100vh - 100px), 100vw);
+    width: min(calc(100vh - 120px), (100vw - 20px));
+    height: min(calc(100vh - 100px - 1rem), 100vw);
+    box-shadow: 0px 5px 10px #888;
 }
 
 #canvas > div {
@@ -43,14 +44,16 @@ h1 {
 form {
     display: flex;
     flex-wrap: wrap;
+    margin: .5rem 0;
+    box-shadow: 0px 5px 10px #888;
 }
 
 label {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
 }
 
 [for=white] {background-color: white;}
